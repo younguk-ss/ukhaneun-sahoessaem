@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* ───────── 디자인 토큰 ─────────
+   네이비(신뢰) + 아이보리/세피아(기록물) 톤 */
+@theme {
+  --color-navy-50: #EEF2FB;
+  --color-navy-100: #DCE4F6;
+  --color-navy-200: #B6C6EC;
+  --color-navy-500: #3354B0;
+  --color-navy-700: #1E3A8A;
+  --color-navy-800: #182F70;
+  --color-navy-900: #112152;
+
+  --color-ivory-50: #FDFBF5;
+  --color-ivory-100: #F8F3E6;
+  --color-ivory-200: #F1E8D2;
+  --color-sepia-300: #D9C3A0;
+  --color-sepia-500: #A8835A;
+  --color-sepia-700: #6F5236;
+
+  --color-ink: #1F2430;
+
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-serif: "Noto Serif KR", "Nanum Myeongjo", serif;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-ivory-50 text-ink font-sans antialiased;
+    word-break: keep-all;
+  }
+  h1, h2, h3 { @apply font-serif; }
+}
+
+/* 종이 질감 느낌의 은은한 배경 */
+.paper {
+  background-color: var(--color-ivory-50);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgb(168 131 90 / 0.08) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+/* Radix Dialog 애니메이션 */
+@keyframes overlay-in { from { opacity: 0 } to { opacity: 1 } }
+@keyframes content-in { from { opacity: 0; transform: translate(-50%, -48%) scale(.97) } to { opacity: 1; transform: translate(-50%, -50%) scale(1) } }
+.anim-overlay { animation: overlay-in 150ms ease-out; }
+.anim-content { animation: content-in 180ms ease-out; }
